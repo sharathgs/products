@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hcl.product.dto.RegistrationDto;
 import com.hcl.product.dto.ResponseDto;
+import com.hcl.product.exception.UserException;
+import com.hcl.product.model.Category;
 import com.hcl.product.model.Registration;
+import com.hcl.product.service.CategoryService;
 import com.hcl.product.service.UserService;
 
 @RestController
@@ -25,6 +28,9 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	CategoryService categoryService;
+	
 	@PostMapping("/register")
 	public ResponseEntity<ResponseDto> addUser(@Valid @RequestBody RegistrationDto registrationDto)
 	{
@@ -33,10 +39,17 @@ public class UserController {
 	}
 	
 	@PostMapping("/userLogin")
-	public ResponseEntity<List<Registration>> loginUser(@RequestParam String userName, @RequestParam String userPassword)
+	public ResponseEntity<List<Category>> loginUser(@RequestParam String userName, @RequestParam String userPassword)
 	{
-		userService.login(userName, userPassword);
-		return null;
+		Registration registration = (Registration) userService.login(userName, userPassword);
+		if(registration != null)
+		{
+			return new ResponseEntity<List<Category>>(categoryService.getCategory(), HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<List<Category>>(HttpStatus.NOT_FOUND);
+		}
 	}
 	
 }

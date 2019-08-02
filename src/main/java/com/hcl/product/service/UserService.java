@@ -28,11 +28,11 @@ public class UserService {
 	}
 	
 	
-	public List login(String userName, String userPassword)
+	public Registration login(String userName, String userPassword)
 	{
 		Registration resultData = userRepository.findByUsernameAndUserpassword(userName, userPassword);
 		if(resultData != null)
-			return null;
+			return resultData;
 		return null;
 	}
 	

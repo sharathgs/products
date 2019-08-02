@@ -15,7 +15,8 @@ public class CategoryCount {
 	
 	private String category;
 	private int categoryCountByUserName;
-	private String UserName;
+	private String username;
+	
 	public int getId() {
 		return id;
 	}
@@ -34,24 +35,22 @@ public class CategoryCount {
 	public void setCategoryCountByUserName(int categoryCountByUserName) {
 		this.categoryCountByUserName = categoryCountByUserName;
 	}
-	public String getUserName() {
-		return UserName;
+	public String getUsername() {
+		return username;
 	}
-	public void setUserName(String userName) {
-		UserName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public CategoryCount(int id, String category, int categoryCountByUserName, String userName) {
+	public CategoryCount(int id, String category, int categoryCountByUserName, String username) {
 		super();
 		this.id = id;
 		this.category = category;
 		this.categoryCountByUserName = categoryCountByUserName;
-		UserName = userName;
+		this.username = username;
 	}
 	public CategoryCount() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 }

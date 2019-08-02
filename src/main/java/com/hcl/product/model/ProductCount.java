@@ -16,6 +16,7 @@ public class ProductCount {
 	private String productName;
 	private int productCountByUser;
 	private String userName;
+	
 	public int getId() {
 		return id;
 	}
