@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hcl.product.dto.RegistrationDto;
 import com.hcl.product.dto.ResponseDto;
-import com.hcl.product.exception.UserException;
 import com.hcl.product.model.Category;
-import com.hcl.product.model.Registration;
 import com.hcl.product.service.CategoryService;
 import com.hcl.product.service.UserService;
 
@@ -38,18 +36,30 @@ public class UserController {
 		return new ResponseEntity<ResponseDto>(responseDto, HttpStatus.CREATED);
 	}
 	
+	/*@PostMapping("/userLogin")
+	public ResponseEntity<List<Category>> loginUser(@RequestParam String userName, @RequestParam String userPassword)
+	{
+		Registration registration = userService.login(userName, userPassword);
+		
+		  if(registration != null) {
+			  return new ResponseEntity<List<Category>>(categoryService.getCategory(), HttpStatus.OK);
+		  } else {
+			  return new ResponseEntity<List<Category>>(HttpStatus.NOT_FOUND); 
+			  }
+	}*/
+	
+	
 	@PostMapping("/userLogin")
 	public ResponseEntity<List<Category>> loginUser(@RequestParam String userName, @RequestParam String userPassword)
 	{
-		Registration registration = (Registration) userService.login(userName, userPassword);
-		if(registration != null)
-		{
-			return new ResponseEntity<List<Category>>(categoryService.getCategory(), HttpStatus.OK);
-		}
-		else
-		{
-			return new ResponseEntity<List<Category>>(HttpStatus.NOT_FOUND);
-		}
+		List<Category> categoryList = userService.login(userName, userPassword);
+		
+		  if(categoryList != null) {
+			  return new ResponseEntity<List<Category>>(categoryList, HttpStatus.OK);
+		  } else {
+			  return new ResponseEntity<List<Category>>(HttpStatus.NOT_FOUND); 
+			  }
 	}
+	
 	
 }

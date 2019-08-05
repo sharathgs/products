@@ -24,7 +24,12 @@ public class ProductService {
 	{
 		int count = 0;
 		Optional<Product> productDetails = productRepository.findById(productId);
-		Optional<ProductCount> productLikes = productCountRepository.findByuserNameAndProductName(username, productDetails.get().getProductName());
+		String productName = null;
+		if(productDetails.isPresent())
+		{
+			productName = productDetails.get().getProductName();
+		}
+		Optional<ProductCount> productLikes = productCountRepository.findByuserNameAndProductName(username, productName);
 		
 		if(productLikes.isPresent())
 		{
@@ -36,10 +41,10 @@ public class ProductService {
 		{
 			count = 1;
 			ProductCount productCount = new ProductCount();
-			productCount.setProductName(productDetails.get().getProductName());
+			productCount.setProductName(productName);
 			productCount.setProductCountByUser(count);
 			productCount.setUserName(username);
-			System.out.println("count else "+count);
+			//System.out.println("count else "+count);
 			productCountRepository.save(productCount);
 			
 			return productDetails;

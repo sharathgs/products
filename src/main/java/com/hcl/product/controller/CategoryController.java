@@ -26,7 +26,7 @@ public class CategoryController {
 		return categoryService.getCategory();
 	}
 	
-	@GetMapping("/product/all")
+	@GetMapping("/categoryId/allproduct")
 	public List getCategoryByProduct(@RequestParam int productid,@RequestParam String username)
 	{
 		return categoryService.getProductByCategory(productid,username);
