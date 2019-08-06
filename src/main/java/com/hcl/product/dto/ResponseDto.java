@@ -11,7 +11,6 @@ public class ResponseDto {
 
 	public ResponseDto() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getMessage() {

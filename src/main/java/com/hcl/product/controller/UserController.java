@@ -42,18 +42,6 @@ public class UserController {
 		return new ResponseEntity<ResponseDto>(responseDto, HttpStatus.CREATED);
 	}
 	
-	/*@PostMapping("/userLogin")
-	public ResponseEntity<List<Category>> loginUser(@RequestParam String userName, @RequestParam String userPassword)
-	{
-		Registration registration = userService.login(userName, userPassword);
-		
-		  if(registration != null) {
-			  return new ResponseEntity<List<Category>>(categoryService.getCategory(), HttpStatus.OK);
-		  } else {
-			  return new ResponseEntity<List<Category>>(HttpStatus.NOT_FOUND); 
-			  }
-	}*/
-	
 	
 	@PostMapping("/userLogin")
 	public ResponseEntity<List<Category>> loginUser(@RequestParam String userName, @RequestParam String userPassword)

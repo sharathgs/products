@@ -68,7 +68,6 @@ public class RegistrationDto {
 	}
 	public RegistrationDto() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 }

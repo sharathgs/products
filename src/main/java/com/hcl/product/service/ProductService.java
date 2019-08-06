@@ -44,11 +44,9 @@ public class ProductService {
 			productCount.setProductName(productName);
 			productCount.setProductCountByUser(count);
 			productCount.setUserName(username);
-			//System.out.println("count else "+count);
 			productCountRepository.save(productCount);
 			
 			return productDetails;
-			//return productRepository.findById(productId);
 		}
 		
 	}

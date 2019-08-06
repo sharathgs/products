@@ -1,6 +1,5 @@
 package com.hcl.product.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,8 +31,7 @@ public class CategoryService {
 	
 	public List getCategory()
 	{
-		List categoryList = categoryRepository.findAll();
-		return categoryList;
+		return categoryRepository.findAll();
 	}
 	
 	public List getProductByCategory(int categoryId, String username)

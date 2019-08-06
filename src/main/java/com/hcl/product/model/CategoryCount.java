@@ -50,7 +50,6 @@ public class CategoryCount {
 	}
 	public CategoryCount() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 }

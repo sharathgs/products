@@ -31,14 +31,6 @@ public class UserService {
 		return new ResponseDto("User added successfully");
 	}
 
-	/*public Registration login(String userName, String userPassword) throws UserException {
-		Optional<Registration> resultData = userRepository.findByUsernameAndUserpassword(userName, userPassword);
-		if (!resultData.isPresent())
-			throw new UserException("Invalid credentials");
-		return resultData.get();
-	}*/
-	
-	
 	public List<Category> login(String userName, String userPassword) throws UserException {
 		Optional<Registration> resultData = userRepository.findByUsernameAndUserpassword(userName, userPassword);
 		if (!resultData.isPresent())
